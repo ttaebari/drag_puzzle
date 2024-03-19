@@ -30,6 +30,7 @@ let time = 0;
 
 
 function showPic(){
+    clearInterval(timeInterval)
     time = 0;
     container.innerHTML = "";
     gameText.computedStyleMap.display = 'none'
