@@ -85,7 +85,7 @@ function checkStatus() {
 }
 
 //events
-container.addEventListener('dragstart', e => {
+container.addEventListener('touchstart', e => {
     if(!isPlaying) return;
     const obj = e.target
     dragged.el = obj;
@@ -93,11 +93,11 @@ container.addEventListener('dragstart', e => {
     dragged.index = [...obj.parentNode.children].indexOf(e.target);
 })
 
-container.addEventListener('dragover', e => {
+container.addEventListener('touchmove', e => {
     e.preventDefault();
 })
 
-container.addEventListener('drop', e => {
+container.addEventListener('touchend', e => {
     if(!isPlaying) return;
     const obj = e.target
 
