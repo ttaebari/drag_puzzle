@@ -12,7 +12,7 @@ const button7 = document.getElementById('7')
 const button8 = document.getElementById('8')
 
 
-const tileCount = 24;
+const tileCount = 12;
 
 let tiles = [];
 

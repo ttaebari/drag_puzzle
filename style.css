@@ -34,15 +34,15 @@ ul{
     list-style: none;
     border: 2px solid var(--facebook);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 li{
-    width : 100px;
-    height: 100px;
+    width : 200px;
+    height: 200px;
     color: white;
     background-image: none;
-    background-size:400px 600px ;
+    background-size:600px 800px ;
 }
 
 .start-button {
@@ -68,58 +68,58 @@ li{
 }
 
 .list1{
-    background-position-x: -100px ;
+    background-position-x: -200px ;
     background-position-y: 0px;
 }
 
 .list2{
-    background-position-x: -200px ;
+    background-position-x: -400px ;
     background-position-y: 0px;
 }
 
 .list3{
-    background-position-x: -300px ;
-    background-position-y: 0px;
+    background-position-x: 0px ;
+    background-position-y: -200px;
 }
 
 .list4{
-    background-position-x: 0px ;
-    background-position-y: -100px;
+    background-position-x: -200px ;
+    background-position-y: -200px;
 }
 
 .list5{
-    background-position-x: -100px ;
-    background-position-y: -100px;
+    background-position-x: -400px ;
+    background-position-y: -200px;
 }
 
 .list6{
-    background-position-x: -200px ;
-    background-position-y: -100px;
+    background-position-x: 0px ;
+    background-position-y: -400px;
 }
 
 .list7{
-    background-position-x: -300px ;
-    background-position-y: -100px;
+    background-position-x: -200px ;
+    background-position-y: -400px;
 }
 
 .list8{
-    background-position-x: 0px ;
-    background-position-y: -200px;
+    background-position-x: -400px ;
+    background-position-y: -400px;
 }
 
 .list9{
-    background-position-x: -100px ;
-    background-position-y: -200px;
+    background-position-x: 0px ;
+    background-position-y: -600px;
 }
 
 .list10{
     background-position-x: -200px ;
-    background-position-y: -200px;
+    background-position-y: -600px;
 }
 
 .list11{
-    background-position-x: -300px ;
-    background-position-y: -200px;
+    background-position-x: -400px ;
+    background-position-y: -600px;
 }
 
 .list12{
