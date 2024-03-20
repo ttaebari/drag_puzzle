@@ -33,12 +33,13 @@ function showPic(){
     clearInterval(timeInterval)
     time = 0;
     container.innerHTML = "";
-    gameText.computedStyleMap.display = 'none'
+    gameText.style.display = 'none'
     tiles = createImageTiles();
     tiles.forEach(tile => container.appendChild(tile))
 }
 
 function setGame() {
+    gameText.display = "none";
     setTimeout(() => {
         isPlaying = true;
         container.innerHTML = "";
@@ -75,11 +76,10 @@ function shuffle(array) {
 
 function checkStatus() {
     const currentList = [...container.children];
-    const unMatchedList = currentList.filter((child, index) => {
-        return Number(child.getAttribute("data-index")) !== index
-    })
-    if(unMatchedList === 0){
-        gameText.computedStyleMap.display = "block";
+    const unMatchedList = currentList.filter((child, index) => Number(child.getAttribute("data-index")) !== index)
+    console.log(unMatchedList);
+    if(unMatchedList.length === 0){
+        gameText.style.display = "block";
         isPlaying = false;
         clearInterval(timeInterval)
     }
@@ -99,6 +99,39 @@ container.addEventListener('touchmove', e => {
 })
 
 container.addEventListener('touchend', e => {
+    if(!isPlaying) return;
+    const obj = e.target
+
+    if (obj.className !== dragged.class) {
+        let originPlace;
+        let isLast = false;
+
+        if (dragged.el.nextSibling) {
+            originPlace = dragged.el.nextSibling;
+        } else {
+            originPlace = dragged.el.previousSibling;
+            isLast = true;
+        }
+        const droppedIndex = [...obj.parentNode.children].indexOf(e.target);
+        dragged.index > droppedIndex ? obj.before(dragged.el) : obj.after(dragged.el);
+        isLast ? originPlace.after(obj) : originPlace.before(obj);
+    }
+    checkStatus();
+})
+
+container.addEventListener('dragstart', e => {
+    if(!isPlaying) return;
+    const obj = e.target
+    dragged.el = obj;
+    dragged.class = obj.className;
+    dragged.index = [...obj.parentNode.children].indexOf(e.target);
+})
+
+container.addEventListener('dragover', e => {
+    e.preventDefault();
+})
+
+container.addEventListener('drop', e => {
     if(!isPlaying) return;
     const obj = e.target
 
